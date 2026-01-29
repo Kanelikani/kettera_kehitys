@@ -14,6 +14,7 @@ app.use(express.json());
 
 // Reitit
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/dogs', require('./routes/dogs'));
 //app.use('/api/profiles', require('./routes/profiles'));
 //app.use('/api/parks', require('./routes/parks'));
 

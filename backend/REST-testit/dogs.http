@@ -1,0 +1,17 @@
+### Create/Update my dog
+POST http://localhost:5000/api/dogs/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTdiM2NlMGU1ZGY5YmEzYTdjODcwODMiLCJpYXQiOjE3Njk2ODg0ODksImV4cCI6MTc2OTY5MjA4OX0.37TQLef7J0pq7Vj4ElXXYfGY3M1KH8GL0On0vgBmIig
+Content-Type: application/json
+
+{
+  "name": "Rollo",
+  "breed": "Labrador",
+  "age": 4,
+  "bio": "Rakastaa palloa ja metsälenkkejä",
+  "visibility": "public",
+  "imageUrl": "https://placedog.net/400/300?id=10"
+}
+
+### Get my dog
+GET http://localhost:5000/api/dogs/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTdiM2NlMGU1ZGY5YmEzYTdjODcwODMiLCJpYXQiOjE3Njk2ODg0ODksImV4cCI6MTc2OTY5MjA4OX0.37TQLef7J0pq7Vj4ElXXYfGY3M1KH8GL0On0vgBmIig

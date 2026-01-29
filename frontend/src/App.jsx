@@ -1,75 +1,35 @@
 // frontend/src/App.jsx
-
-import { useState } from "react"
-import DogCard from "./components/DogCard"
-
-const dogs = [
-  {
-    id: 1,
-    name: "Buddy",
-    breed: "Golden Retriever",
-    age: 3,
-    bio: "Loves long walks and treats 🦴",
-    photo: "https://placedog.net/400/300?id=1"
-  },
-  {
-    id: 2,
-    name: "Luna",
-    breed: "Husky",
-    age: 2,
-    bio: "Very talkative and very fluffy ❄️",
-    photo: "https://placedog.net/400/300?id=2"
-  },
-  {
-    id: 3,
-    name: "Max",
-    breed: "Beagle",
-    age: 4,
-    bio: "Sniffs everything. EVERYTHING.",
-    photo: "https://placedog.net/400/300?id=3"
-  }
-]
+import LoginForm from "./components/LoginForm";
+import { useAuth } from "./context/AuthContext";
+import DogCard from "./components/DogCard"; // sinun aiempi DogCard
 
 function App() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [likedDogs, setLikedDogs] = useState([])
+  const { user, logout } = useAuth();
 
-  const currentDog = dogs[currentIndex]
-
-  function handleLike() {
-    setLikedDogs([...likedDogs, currentDog.id])
-    setCurrentIndex(currentIndex + 1)
-  }
-
-  function handlePass() {
-    setCurrentIndex(currentIndex + 1)
+  if (!user) {
+    return <LoginForm />;
   }
 
   return (
-    <div style={styles.container}>
-      <h1>Dog Tinder 🐶</h1>
+    <div style={{ padding: "2rem" }}>
+      <h1>WufWuf 🐶</h1>
+      <p>Kirjautunut: {user.email} (koira: {user.dogName || "ei vielä"})</p>
+      <button onClick={logout}>Logout</button>
 
-      {currentDog ? (
-        <DogCard
-          dog={currentDog}
-          onLike={handleLike}
-          onPass={handlePass}
-        />
-      ) : (
-        <h2>No more dogs nearby 🐕</h2>
-      )}
-
-      <p>Liked dogs: {likedDogs.length}</p>
+      {/* toistaiseksi voit näyttää täällä demo DogCardit */}
+      <DogCard
+        dog={{
+          name: user.dogName || "Rollo",
+          breed: "Mixed",
+          age: 4,
+          bio: "Ensimmäinen koiraprofiliisi WufWufissa",
+          photo: "https://placedog.net/400/300?id=10"
+        }}
+        onLike={() => {}}
+        onPass={() => {}}
+      />
     </div>
-  )
+  );
 }
 
-const styles = {
-  container: {
-    fontFamily: "Arial, sans-serif",
-    textAlign: "center",
-    padding: "2rem"
-  }
-}
-
-export default App
+export default App;

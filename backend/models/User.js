@@ -1,3 +1,5 @@
+// backend/models/User.js
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
@@ -9,10 +11,11 @@ const userSchema = new mongoose.Schema({
 });
 
 // Salasanan hashaus ennen tallennusta
-userSchema.pre('save', async function(next) {
-  if (!this.isModified('password')) return next();
+userSchema.pre('save', async function () {
+  // jos salasanaa ei ole muutettu, ei hashata uudelleen
+  if (!this.isModified('password') && !this.$isNew) return;
+
   this.password = await bcrypt.hash(this.password, 10);
-  next();
 });
 
 module.exports = mongoose.model('User', userSchema);
