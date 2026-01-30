@@ -1,35 +1,53 @@
 // frontend/src/App.jsx
-import LoginForm from "./components/LoginForm";
+
+// reitityskirjasto, tekee SPA-sovelluksesta monisivuisen ilman sivunlatauksia
+import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
-import DogCard from "./components/DogCard"; // sinun aiempi DogCard
+import LoginForm from "./components/Login";
+import Register from "./components/Register";
+import DogProfile from "./components/DogProfile";   // Käyttäjän koiraprofiili
+// import DogCard from './components/DogCard';  // testiä varten
+
+// Navbar, näyttää Login/Register tai Logout riipuen AuthContextin user-tilasta 
+function Navbar() {
+    const { user, logout } = useAuth(); // Haetaan käyttäjä + logout-funktio AuthContextista
+    return (
+        <nav>
+            <h1>Koira-tinder</h1>
+            {user ? (
+                <>
+                    <span>Hei {user.dogName}! </span>
+                    <button onClick={() => logout()}>Kirjaudu ulos</button>
+                </>
+            ) : (
+                <>
+                    <Link to="/login">[Kirjaudu]</Link>
+                    <Link to="/register">[Rekisteröidy]</Link>
+                </>
+            )}
+        </nav>
+    );
+}
 
 function App() {
-  const { user, logout } = useAuth();
-
-  if (!user) {
-    return <LoginForm />;
-  }
-
-  return (
-    <div style={{ padding: "2rem" }}>
-      <h1>WufWuf 🐶</h1>
-      <p>Kirjautunut: {user.email} (koira: {user.dogName || "ei vielä"})</p>
-      <button onClick={logout}>Logout</button>
-
-      {/* toistaiseksi voit näyttää täällä demo DogCardit */}
-      <DogCard
-        dog={{
-          name: user.dogName || "Rollo",
-          breed: "Mixed",
-          age: 4,
-          bio: "Ensimmäinen koiraprofiliisi WufWufissa",
-          photo: "https://placedog.net/400/300?id=10"
-        }}
-        onLike={() => {}}
-        onPass={() => {}}
-      />
-    </div>
-  );
+    const { user } = useAuth();  // Haetaan käyttäjä AuthContextista
+    return (
+        <BrowserRouter>
+            <Navbar />  {/* Ylhäällä aina */}
+            <div>
+                <Routes>
+                    <Route path="/" element={<LoginForm />} />
+                    <Route path="/login" element={<LoginForm />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route 
+                        path="/profile" 
+                        element={user ? <DogProfile /> : <Navigate to="/login" />} 
+                    />
+                    <Route path="*" element={<Navigate to="/" />} />
+                </Routes>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;

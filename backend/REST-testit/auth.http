@@ -3,9 +3,9 @@ POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-  "email": "testi1@wufwuf.com",
-  "password": "salasana123",
-  "dogName": "Rollo",
+  "email": "a@a.fi",
+  "password": "Kissa123",
+  "dogName": "Aseksi",
   "visibility": "public"
 }
 
