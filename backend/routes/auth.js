@@ -20,7 +20,7 @@ router.post("/register", async (req, res) => {
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
         res.json({ token, user: { id: user._id, email, dogName } });
     } catch (err) {
-        console.error("REGISTER ERROR:", err);   // ← lisää
+        console.error("REGISTER ERROR:", err);
         res.status(400).json({ error: err.message });
     }
 });
@@ -37,7 +37,7 @@ router.post("/login", async (req, res) => {
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
         res.json({ token, user: { id: user._id, email: user.email, dogName: user.dogName } });
     } catch (err) {
-        console.error("LOGIN ERROR:", err);      // ← lisää
+        console.error("LOGIN ERROR:", err);
         res.status(400).json({ error: err.message });
     }
 });

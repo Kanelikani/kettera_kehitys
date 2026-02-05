@@ -4,13 +4,14 @@ const jwt = require("jsonwebtoken");
 
 // Middleware, joka varmistaa että käyttäjällä on voimassa oleva JWT-token
 function auth(req, res, next) {
-    // Haetaan Authorization-header (muodossa "Bearer TOKEN")
-    const header = req.header("Authorization");
+    // Otetaan Authorization-headerista pelkkä token
+    const authHeader = req.headers.authorization || "";
+    const [scheme, token] = authHeader.split(" ");
+    
+    if (scheme !== "Bearer" || !token) {
+        return res.status(401).json({ error: "Missing or invalid Authorization header" });
+    }
 
-    if (!header) return res.status(401).json({ error: "No token" });
-
-    // Poistetaan "Bearer" ja jätetään pelkkä TOKEN
-    const token = header.replace("Bearer ", "");
 
     try {
     // Tarkistetaan token ja puretaan siitä payload (mm. userId)
@@ -19,9 +20,10 @@ function auth(req, res, next) {
 
         next();
     } catch (err) {
-
-        return res.status(401).json({ error: "Token invalid or expired" });
+        console.error("AUTH ERROR:", err);
+        return res.status(401).json({ error: "Token invalid or expired"});
     }
 }
 
 module.exports = auth;
+

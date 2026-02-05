@@ -9,7 +9,10 @@ const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
 
-app.use(cors({ origin: "http://localhost:5173" }));  // Frontend-portti
+app.use(cors({
+    origin: "http://localhost:5173",
+    // credentials: true,  //Authorization-headerissa Bearer JWT:tä (ei cookies), credentials ei ole pakollinen.
+}));
 app.use(express.json());
 
 // Reitit
