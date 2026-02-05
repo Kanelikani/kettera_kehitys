@@ -1,0 +1,70 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
+.env.test
+.env.production
+
+# Yleisimmät Node-projektit
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Build / dist
+dist/
+build/
+client/dist/
+server/dist/
+
+# Vite / React
+*.local
+*.cache
+.cache/
+.vite/
+
+# Env-muuttujat
+.env
+.env.*
+!.env.example
+
+# VS Code / IDE
+.vscode/
+.idea/
+*.swp
+
+# OS-roska
+.DS_Store
+Thumbs.db
+
+# Testit
+coverage/
+.jest/
+*.lcov
+
+# Logs
+logs/
+*.log

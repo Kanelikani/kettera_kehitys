@@ -1,0 +1,23 @@
+### Register user
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "a@a.fi",
+  "password": "Kissa123",
+  "dogName": "Aseksi",
+  "visibility": "public"
+}
+
+### Login user
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "testi1@wufwuf.com",
+  "password": "salasana123"
+}
+
+### Me (kopioi login-vastauksen token tähän)
+GET http://localhost:5000/api/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTdiM2NlMGU1ZGY5YmEzYTdjODcwODMiLCJpYXQiOjE3Njk2ODg0ODksImV4cCI6MTc2OTY5MjA4OX0.37TQLef7J0pq7Vj4ElXXYfGY3M1KH8GL0On0vgBmIig
