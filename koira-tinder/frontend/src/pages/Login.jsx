@@ -1,12 +1,20 @@
-import React from "react";
+// src/pages/Login.jsx
 
-function Login() {
-	return (
+import LoginForm from "../components/LoginForm";
+import { Link } from "react-router-dom";
+
+export default function Login() {
+  return (
+    <div>
+      <h1>Koira-tinder</h1>
+      <p>Juu mukava jotta sulla on jo accounti, eikö kirjautumaan koirien Tinderiin</p>
+      <LoginForm />
 		<div>
-			<h2>Login</h2>
-			<p>Login page placeholder.</p>
-		</div>
-	);
+            <p>Eikö ole tiliä?</p>
+            <Link to="/register">
+        		Rekisteröidy Koira-Tinderiin!
+            </Link>
+        </div>
+    </div>
+  );
 }
-
-export default Login;

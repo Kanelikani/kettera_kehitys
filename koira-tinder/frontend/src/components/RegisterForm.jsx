@@ -1,4 +1,4 @@
-// src/components/Register.jsx
+// src/components/RegisterForm.jsx
 
 // Lähettää POST /api/auth/register ja tallettaa tokenin AuthContextin kautta
 
@@ -132,11 +132,8 @@ function Register() {
       
             <button type="submit">Rekisteröidy</button>
       
-            <p>
-        Onko tili jo? <Link to="/login">Kirjaudu sisään!</Link>
-            </p>
         </form>
     );
 }
 
-export default Register;  // Importtaa App.jsx:ään: <Route path="/register" element={<Register />} />
+export default Register;

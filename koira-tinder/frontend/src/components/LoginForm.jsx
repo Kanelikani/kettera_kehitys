@@ -1,4 +1,4 @@
-// src/components/Login.jsx
+// src/components/LoginForm.jsx
 
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
@@ -34,11 +34,6 @@ function LoginForm() {
 
     return (
         <div>
-            <div>
-                <h1>Koira-tinder</h1>
-                <p>Esittelyteksti...?</p>
-            </div>
-
             <form onSubmit={handleSubmit}>
                 <h2>Kirjaudu sisään</h2>
 
@@ -70,13 +65,6 @@ function LoginForm() {
 
                 <button type="submit">Kirjaudu sisään</button>
             </form>
-
-            <div>
-                <p>Eikö ole tiliä?</p>
-                <Link to="/register">
-        Rekisteröidy Koira-Tinderiin!
-                </Link>
-            </div>
         </div>
     );
 }
