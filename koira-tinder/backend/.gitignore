@@ -68,3 +68,6 @@ coverage/
 # Logs
 logs/
 *.log
+
+# upatut kuvat
+backend/uploads/

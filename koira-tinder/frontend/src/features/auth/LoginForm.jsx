@@ -1,7 +1,7 @@
-// src/components/LoginForm.jsx
+// src/features/auth/LoginForm.jsx
 
 import { useState } from "react";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import axios from "axios";
 import { Link , useNavigate} from "react-router-dom";  // Parempi kuin <a href>
 

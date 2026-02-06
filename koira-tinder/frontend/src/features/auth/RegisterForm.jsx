@@ -1,10 +1,10 @@
-// src/components/RegisterForm.jsx
+// src/features/auth/RegisterForm.jsx
 
 // Lähettää POST /api/auth/register ja tallettaa tokenin AuthContextin kautta
 
 import { useState } from "react";
 // AuthContextin login-funktio tallettaa user/token localStorageen + päivittää tilan
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 // Axios CRUD-kutsuihin
 import axios from "axios";
 
