@@ -5,6 +5,8 @@ const Dog = require("../models/Dog");
 const auth = require("../middleware/auth");
 const upload = require("../middleware/upload");
 
+const Swipe = require("../models/Swipe");
+
 const router = express.Router();
 
 // Luo tai päivitä oma koiraprofiili
@@ -97,6 +99,31 @@ router.get("/me", auth, async (req, res) => {
         return res.json(dog);
     } catch {
         return res.status(500).json({ error: "Server error retrieving dog profile" });
+    }
+});
+
+// Hae muiden julkiset koirat selausta varten (filtteröi jo swipatut pois)
+// GET /api/dogs
+router.get("/", auth, async (req, res) => {
+    try {
+        // 1. Hae kaikki koirat, jotka käyttäjä on jo swipannut (like/pass)
+        const swipes = await Swipe.find({ fromUser: req.userId }).select("toDog");
+        const swipedDogIds = swipes.map((s) => s.toDog);
+
+        // 2. Hae koirat joita ei ole vielä swipattu
+        const dogs = await Dog.find({
+            visibility: "public",
+            owner: { $ne: req.userId },
+            // _id: { $nin: [...] } tekee sen “älä näytä jo nähtyjä” -filtterin.
+            _id: { $nin: swipedDogIds },
+        })
+            .sort({ createdAt: -1 })
+            .limit(50)
+            .select("name breed age bio imageUrl visibility owner createdAt");
+
+        return res.json(dogs);
+    } catch {
+        return res.status(500).json({ error: "Server error retrieving dogs" });
     }
 });
 

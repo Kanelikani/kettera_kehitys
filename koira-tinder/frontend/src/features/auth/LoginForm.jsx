@@ -26,7 +26,7 @@ function LoginForm() {
         try {
             const res = await axios.post(`${API_BASE}/api/auth/login`, formData);
             login(res.data.user, res.data.token);  // kutsuu AuthContextin login-funktiota, joka päivittää user ja token
-            navigate("/profile");
+            navigate("/dogs");
         } catch (err) {
             setError(err.response?.data?.error || "Kirjautuminen epäonnistui");
         }
