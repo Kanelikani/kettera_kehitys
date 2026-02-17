@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
+import "../styles/Dogs.css"
 
 const API_BASE = "http://localhost:5000";
 

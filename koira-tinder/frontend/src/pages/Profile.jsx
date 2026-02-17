@@ -1,5 +1,6 @@
 import DogProfile from "../features/dogs/DogProfile";
 import UserProfile from "../features/user/UserProfile";
+import "../styles/Profile.css"
 
 export default function Profile() {
     return (

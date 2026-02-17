@@ -1,5 +1,6 @@
 import RegisterForm from "../features/auth/RegisterForm";
 import { Link } from "react-router-dom";
+import "../styles/Auth.css"
 
 export default function Register() {
     return (
