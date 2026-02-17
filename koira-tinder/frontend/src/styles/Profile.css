@@ -1,0 +1,125 @@
+/* ---------- Body / General ---------- */
+body {
+  background-color: #f3f4f6; /* light gray */
+  font-family: 'Inter', sans-serif;
+  color: #111827;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Main Container ---------- */
+.profile-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ---------- Sections ---------- */
+.profile-section {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.profile-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* Section headers */
+.profile-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Avatars ---------- */
+.avatar-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.avatar-wrapper img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4f46e5;
+}
+
+/* ---------- Cards / Form Layout ---------- */
+.user-card, .dog-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.user-card input,
+.user-card select,
+.dog-card input,
+.dog-card select,
+.dog-card textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.user-card textarea,
+.dog-card textarea {
+  grid-column: span 2; /* Full width for description fields */
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Input focus states */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+/* ---------- Labels ---------- */
+.user-card label,
+.dog-card label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+/* ---------- Buttons ---------- */
+.user-card button,
+.dog-card button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.user-card button:hover,
+.dog-card button:hover {
+  background: linear-gradient(90deg, #4338ca, #5b46f5);
+}
+
+/* ---------- Optional small attribute cards inside dog section ---------- */
+.attribute-card {
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}

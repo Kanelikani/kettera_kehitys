@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "http://localhost:5174"],
     // credentials: true,  //Authorization-headerissa Bearer JWT:tä (ei cookies), credentials ei ole pakollinen.
 }));
 app.use(express.json());

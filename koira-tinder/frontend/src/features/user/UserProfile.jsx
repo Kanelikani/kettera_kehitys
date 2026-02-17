@@ -228,7 +228,8 @@ export default function UserProfile() {
                 <button type="submit">Vaihda salasana</button>
             </form>
 
-            <pre>{JSON.stringify(serverUser, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(serverUser, null, 2)}</pre> */}
+
 
         </div>
     );

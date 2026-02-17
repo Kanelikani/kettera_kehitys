@@ -13,14 +13,29 @@ const auth = require("../middleware/auth");
 router.post("/register", async (req, res) => {
     try {
         const { email, password, dogName, visibility } = req.body;
+        
+        // Validaatio
+        if (!email || !password || !dogName) {
+            return res.status(400).json({ error: "Email, salasana ja koiran nimi vaaditaan" });
+        }
+        
+        if (password.length < 8) {
+            return res.status(400).json({ error: "Salasana pitää olla vähintään 8 merkkiä" });
+        }
+        
         // Mongoon uusi käyttäjä
         const user = new User({ email, password, dogName, visibility });
         await user.save();
+        
         // Luodaan JWT-token, koska se helpottaa backendin kuormaa
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
         res.json({ token, user: { id: user._id, email, dogName } });
     } catch (err) {
-        console.error("REGISTER ERROR:", err);
+        console.error("REGISTER ERROR:", err.message, err.code);
+        // Duplicate email error
+        if (err.code === 11000) {
+            return res.status(400).json({ error: "Sähköposti on jo rekisteröity" });
+        }
         res.status(400).json({ error: err.message });
     }
 });
