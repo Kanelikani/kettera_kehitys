@@ -4,6 +4,10 @@
   border-bottom: 1px solid #ddd;
   display: flex;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
 }
 
 .nav-links {
@@ -36,3 +40,5 @@
 .nav-links button:hover {
   background: #dc2626;
 }
+
+

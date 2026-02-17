@@ -59,7 +59,7 @@ function Register() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <h2>Rekisteröidy WufWufiin</h2>
+            <h2>Rekisteröidy Koira-Tinderiin</h2>
 
             <label>
         Sähköposti:

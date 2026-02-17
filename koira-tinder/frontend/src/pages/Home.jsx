@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="home-container">
       <div className="home-hero">
-        <h2>Koirien Tinder 🐶</h2>
+        <h2>Koirien Tinder</h2>
       </div>
 
       <p className="home-text">

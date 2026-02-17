@@ -1,0 +1,73 @@
+/* Center the form on the page */
+.auth-container {
+  max-width: 400px;
+  margin: 5rem auto; /* center vertically with some spacing */
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Main title */
+.auth-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+/* Subtitle / instruction text */
+.auth-subtitle {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #4b5563;
+}
+
+/* Footer link */
+.auth-footer {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.auth-footer a {
+  color: #2563eb;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+
+.auth-container button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #76dab3;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-container button:hover {
+  background: #53ad8b;
+}
+
+.auth-container input:focus {
+  outline: none;
+  border-color: #5cbd98;
+  box-shadow: 0 0 0 2px rgba(79,70,229,0.2);
+}
