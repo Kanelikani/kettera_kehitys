@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import "../styles/Navbar.css";
 
 function Navbar() {
     const { user, logout } = useAuth();
@@ -11,7 +12,8 @@ function Navbar() {
     };
 
     return (
-        <nav>
+        <nav className="navbar">
+            <div className="nav-links">
             {user ? (
                 <>
                     <Link to="/dogs">Dogs</Link>
@@ -26,6 +28,7 @@ function Navbar() {
                     <Link to="/register">Register</Link>
                 </>
             )}
+            </div>
         </nav>
     );
 }

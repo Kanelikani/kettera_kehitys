@@ -7,6 +7,8 @@ import Login from "./pages/Login";
 import Dogs from "./pages/Dogs";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
+import "./styles/global.css";
+
 
 function App() {
     return (

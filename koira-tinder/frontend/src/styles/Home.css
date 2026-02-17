@@ -1,0 +1,38 @@
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #f9fafb, #e5f0ff);
+  padding: 2rem;
+}
+
+/* Big hero title */
+.home-hero h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+/* Subtitle text */
+.home-text {
+  font-size: 1.2rem;
+  color: #4b5563;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+/* Links section */
+.home-links a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #2563eb;
+  margin: 0 0.3rem;
+}
+
+.home-links a:hover {
+  text-decoration: underline;
+}
