@@ -280,7 +280,7 @@ function DogProfile() {
                     </div>
                 </>
             )}
-            <pre>{JSON.stringify(serverDog, null, 2)}</pre>
+            {/*<pre>{JSON.stringify(serverDog, null, 2)}</pre>*/}
         </div>
     );
 }
